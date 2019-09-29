@@ -1,0 +1,14 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "loose": false,
+      "modules": false
+    }], "@babel/preset-react"
+  ] ,
+  "plugins": [
+    "@babel/plugin-transform-modules-amd",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-syntax-dynamic-import",
+    ["transform-remove-console", { "exclude": [ "warn"] }]
+  ]
+}
