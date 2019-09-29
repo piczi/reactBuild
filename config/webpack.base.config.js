@@ -26,6 +26,7 @@ module.exports = {
                 use: [
                     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
+                    'postcss-loader',
                     'sass-loader',
                 ],
             },
@@ -34,6 +35,7 @@ module.exports = {
                 use: [
                     devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
                     'css-loader',
+                    'postcss-loader',
                     'less-loader',
                 ],
             },
@@ -45,6 +47,25 @@ module.exports = {
                     presets: ['@babel/preset-env','@babel/preset-react'],
                     cacheDirectory: true,
                 }
+            },
+            {
+                test: /\.(png|jpg|gif)$/i,
+                use: [
+                  {
+                    loader: 'url-loader',
+                    options: {
+                      limit: 8192,
+                      name: 'images/[name][contenthash].[ext]',
+                    },
+                  },
+                ],
+            },
+            {
+                test: /\.(mp4|3gp)$/i,
+                loader: 'file-loader',
+                options: {
+                  name: 'media/[name][contenthash].[ext]',
+                },
             },
         ]
     },
@@ -107,5 +128,11 @@ module.exports = {
             filename: devMode ? 'css/[name].css' : 'css/[name][hash].css',
             chunkFilename: devMode ? '[id].css' : 'css/[name][id].[hash].css',
         })
-    ]
+    ],
+    resolve: {
+        alias: {
+          components: path.resolve(__dirname, '../src/components/'),
+          public: path.resolve(__dirname, '../src/public/')
+        }
+      }
 };

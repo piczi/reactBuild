@@ -21,9 +21,5 @@ module.exports = merge(baseConfig, {
          * css压缩
          */
         new OptimizeCssAssetsPlugin(),
-
-        /**
-         * 压缩js
-         */
     ]
 });

@@ -4,8 +4,8 @@
   "description": "react jsx build react-router",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --progress --hot --config config/webpack.dev.config.js",
-    "build": "NODE_ENV=production webpack --config config/webpack.prod.config.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --hot --config config/webpack.dev.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
     "lint": "eslint --ext .js src"
   },
   "keywords": [
@@ -28,6 +28,7 @@
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.6.2",
+    "autoprefixer": "^9.6.1",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -35,11 +36,13 @@
     "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.0",
     "css-loader": "^3.2.0",
     "eslint": "^6.4.0",
     "eslint-config-google": "^0.14.0",
     "eslint-import-resolver-webpack": "^0.11.1",
     "eslint-loader": "^3.0.2",
+    "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "ip": "^1.1.5",
     "less": "^3.10.3",
@@ -47,11 +50,14 @@
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "react-router-dom": "^5.1.1",
     "sass-loader": "^8.0.0",
+    "serve": "^11.2.0",
     "style-loader": "^1.0.0",
     "supports-color": "^7.1.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.1.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
@@ -60,5 +66,9 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }

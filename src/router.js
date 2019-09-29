@@ -1,9 +1,11 @@
 
-import React, { Suspense } from 'react'
+import React, { Suspense } from 'react';
 import FlowerLoading from './components/common/flowerLoading';
 import {
     BrowserRouter,
-    Route,
+    Switch,
+    IndexRoute,
+    Route
 } from 'react-router-dom'
 import routes from './router.config.js'
 
@@ -13,16 +15,17 @@ const Router = () => (
             fallback={
                 FlowerLoading
             }>
-            {
-                routes.map(({ path, component }) => {
-                    console.log(path,component);
-                    return <Route
-                        path={path}
-                        key={path}
-                        component={component}
-                    />
-                })
-            }
+            <Switch>
+                {
+                    routes.map(({ path, component }) => {
+                        return <Route
+                            path={path}
+                            key={path}
+                            component={component}
+                        />
+                    })
+                }
+            </Switch>
         </Suspense>
     </BrowserRouter>
 )
