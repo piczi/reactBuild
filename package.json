@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --hot --config config/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build",
     "lint": "eslint --ext .js src"
   },
   "keywords": [
@@ -59,6 +60,7 @@
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.41.0",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.2.2"

@@ -2,6 +2,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -127,7 +128,21 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: devMode ? 'css/[name].css' : 'css/[name][hash].css',
             chunkFilename: devMode ? '[id].css' : 'css/[name][id].[hash].css',
-        })
+        }),
+        new BundleAnalyzerPlugin(
+            {
+               analyzerMode: 'server',
+               analyzerHost: '127.0.0.1',
+               analyzerPort: 8889,
+               reportFilename: 'report.html',
+               defaultSizes: 'parsed',
+               openAnalyzer: true,
+               generateStatsFile: false,
+               statsFilename: 'stats.json',
+               statsOptions: null,
+               logLevel: 'info'
+            }
+        ),
     ],
     resolve: {
         alias: {
