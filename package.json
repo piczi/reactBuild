@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --hot --config config/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
-    "analyz": "cross-env NODE_ENV=production npm_config_report=true npm run build",
+    "analyz": "cross-env NODE_ENV=production npm_config_report=true webpack --config config/webpack.analyz.config.js",
     "lint": "eslint --ext .js src"
   },
   "keywords": [
@@ -34,7 +34,6 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-minify-webpack-plugin": "^0.3.1",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-polyfill": "^6.26.0",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.0",
@@ -56,7 +55,6 @@
     "sass-loader": "^8.0.0",
     "serve": "^11.2.0",
     "style-loader": "^1.0.0",
-    "supports-color": "^7.1.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.41.0",
