@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --hot --config config/webpack.dev.config.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js",
-    "analyz": "cross-env NODE_ENV=production npm_config_report=true webpack --config config/webpack.analyz.config.js",
+    "analyze": "cross-env NODE_ENV=production npm_config_report=true webpack --config config/webpack.analyz.config.js",
     "lint": "eslint --ext .js src"
   },
   "keywords": [
