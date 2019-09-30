@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Image from 'public/images/bg.jpg';
 import './test.less';
 
 /**
@@ -12,7 +13,9 @@ const Test = () => {
         console.log(222);
     },[]);
 
-    return <div>我是测试11111</div>;
+    return <div>
+        <img src={Image}/>
+    </div>;
 };
 
 

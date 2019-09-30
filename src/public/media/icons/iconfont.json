@@ -1,0 +1,16 @@
+{
+  "id": "1442697",
+  "name": "private",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "11091483",
+      "name": "阴天",
+      "font_class": "yintian",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    }
+  ]
+}

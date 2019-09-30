@@ -6,7 +6,7 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 console.log(devMode ? '开发环境' : '生产环境');
 module.exports = {
-    entry: ['babel-polyfill','./src/index.js'],
+    entry: ['babel-polyfill', './src/index.js'],
     output: {
         filename: 'js/[name].bundle.[hash].js',
         path: path.resolve(__dirname, '../dist'),
@@ -43,29 +43,38 @@ module.exports = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
-                    presets: ['@babel/preset-env','@babel/preset-react'],
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
                     cacheDirectory: true,
                 }
             },
             {
                 test: /\.(png|jpg|gif)$/i,
                 use: [
-                  {
-                    loader: 'url-loader',
-                    options: {
-                      limit: 8192,
-                      name: 'images/[name][contenthash].[ext]',
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: '[name][contenthash].[ext]',
+                            publicPath: '/images',
+                            outputPath: 'images',
+                        },
                     },
-                  },
                 ],
             },
             {
-                test: /\.(mp4|3gp)$/i,
-                loader: 'file-loader',
-                options: {
-                  name: 'media/[name][contenthash].[ext]',
-                },
-            },
+                test: /\.(eot|svg|ttf|otf|woff|woff2|mp4|3gp)$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        // 设置生成字体文件的路径名字信息 [path]相对context，outputPath输出的路径，publicPath相应引用的主路径
+                        name: '[name][contenthash].[ext]',
+                        publicPath: '/media/',
+                        outputPath: 'media',
+                        // 使用文件的相对路径，这里先不用这种方式
+                        // useRelativePath: isProduction
+                    }
+                }],
+            }
         ]
     },
     optimization: {
@@ -130,8 +139,8 @@ module.exports = {
     ],
     resolve: {
         alias: {
-          components: path.resolve(__dirname, '../src/components/'),
-          public: path.resolve(__dirname, '../src/public/')
+            components: path.resolve(__dirname, '../src/components/'),
+            public: path.resolve(__dirname, '../src/public/')
         }
-      }
+    }
 };
