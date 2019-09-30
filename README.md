@@ -16,7 +16,7 @@ npm run build
 ```javascript
 npm run analyze
 ```
-* 开启本地的生产环境（模拟BrowserHistroy） 
+* 开启本地的生产环境（模拟BrowserHistory） 
 ```javascript
 serve -s dist
 ```
