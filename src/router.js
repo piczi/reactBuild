@@ -4,9 +4,9 @@ import FlowerLoading from 'components/common/flowerLoading';
 import {
     BrowserRouter,
     Switch,
-    Route
-} from 'react-router-dom'
-import routes from './router.config.js'
+    Route,
+} from 'react-router-dom';
+import routes from './router.config.js';
 
 const Router = () => (
     <BrowserRouter>

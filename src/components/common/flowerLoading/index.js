@@ -2,9 +2,8 @@ import React from 'react';
 import './index.less'
 
 const index = () => {
-    return (
-        <div className='loadingBox'>
-            <div className="sk-fading-circle">
+    return <div className='loadingBox'>
+                <div className="sk-fading-circle">
                 <div className="sk-circle1 sk-circle"/>
                 <div className="sk-circle2 sk-circle"/>
                 <div className="sk-circle3 sk-circle"/>
@@ -18,8 +17,7 @@ const index = () => {
                 <div className="sk-circle11 sk-circle"/>
                 <div className="sk-circle12 sk-circle"/>
             </div>
-        </div>
-    );
+        </div>;
 };
 
 export default index();

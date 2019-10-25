@@ -4,14 +4,13 @@ import './test.less';
 
 /**
  *
- * @param props
- * @returns {*}
+ * @return {*}
  * @constructor
  */
 const Test = () => {
     useEffect(() => {
         console.log(222);
-    },[]);
+    }, []);
 
     return <div>
         <img src={Image}/>
