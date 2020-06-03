@@ -1,12 +1,13 @@
 
-import React, { Suspense } from 'react';
-import FlowerLoading from 'components/common/flowerLoading';
+import * as React from 'react';
+import { Suspense } from 'react';
+import FlowerLoading from './components/flowerLoading/index';
 import {
     BrowserRouter,
     Switch,
     Route,
 } from 'react-router-dom';
-import routes from './router.config.js';
+import routes from './router.config';
 
 const Router = () => (
     <BrowserRouter>

@@ -12,8 +12,9 @@ module.exports = {
         node: true,
         es6: true,
     },
-    extends: ["eslint:recommended", "google", "plugin:react/recommended"],
-    parser: 'babel-eslint',
+    extends: ["eslint:recommended", "google"],
+    plugins: ["@typescript-eslint/eslint-plugin"],
+    parser: '@typescript-eslint/parser',
     rules: {
         "indent": 0,
         "semi": 0,
@@ -25,5 +26,10 @@ module.exports = {
         "no-control-regex": "off", // 关闭正则禁用控制字符
         "no-debugger": "off", // 关闭禁用debugger
         "arrow-parens": 0,
+        // 优先使用 interface 而不是 type
+        '@typescript-eslint/consistent-type-definitions': [
+            "error",
+            "interface"
+        ]
     }
 };

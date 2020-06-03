@@ -6,19 +6,18 @@ const devMode = process.env.NODE_ENV !== 'production';
 
 console.log(devMode ? '开发环境' : '生产环境');
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: ['babel-polyfill', './src/index.tsx'],
     output: {
         filename: 'js/[name].bundle.[hash].js',
         path: path.resolve(__dirname, '../dist'),
         publicPath: "/"
     },
     module: {
-        rules: [
-            {
-              enforce: 'pre',
-              test: /\.(js|jsx)$/,
-              loader: 'eslint-loader',
-              exclude: /node_modules/,
+        rules: [{
+                enforce: 'pre',
+                test: /\.(js|jsx)$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -39,6 +38,13 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(tsx|ts)$/,
+                exclude: /node_modules/,
+                use: [
+                    'babel-loader',
+                ],
+            },
+            {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
@@ -49,17 +55,15 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif)$/i,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                            name: '[name][contenthash].[ext]',
-                            publicPath: '/images',
-                            outputPath: 'images',
-                        },
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: '[name][contenthash].[ext]',
+                        publicPath: '/images',
+                        outputPath: 'images',
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.(eot|svg|ttf|otf|woff|woff2|mp4|3gp)$/i,
@@ -141,6 +145,7 @@ module.exports = {
         alias: {
             components: path.resolve(__dirname, '../src/components/'),
             public: path.resolve(__dirname, '../src/public/')
-        }
+        },
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
     }
 };
